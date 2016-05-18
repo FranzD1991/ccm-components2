@@ -2,8 +2,8 @@
  * Created by Franz on 17.05.2016.
  */
 /**
- * @overview blank template for <i>ccm</i> component
- * @author André Kless <andre.kless@h-brs.de> 2015-2016
+ * @overview User Story Management Tool for <i>ccm</i> component
+ * @author Franz Dahmann <andre.kless@h-brs.de> 2016
  * @copyright Copyright (c) 2015-2016 Bonn-Rhein-Sieg University of Applied Sciences
  * @license The MIT License (MIT)
  */
@@ -17,7 +17,7 @@ ccm.component( {
      * @memberOf ccm.components.blank
      * @type {ccm.name}
      */
-    name: 'blank',
+    name: 'userstorybuilder',
 
     /**
      * @summary default instance configuration

@@ -4,12 +4,17 @@
 
 ccm.component({
     name: 'tutorial1',
+    config: {
+        key: 'test',
+        store:[ccm.store, { url: 'ws://ccm2.inf.h-brs.de/index.js', store: 'chat' } ]
+    },
     Instance: function () {
         this.render=function(callback){
-            ccm.helper.element(this);
             var element = ccm.helper.element( this );
-            element.html( 'Hello, World!' );
+            this.store.get( this.key, function ( dataset ) {
+                if ( callback ) callback();
+            } );
             if(callback) callback();
         }
     }
-})
+});

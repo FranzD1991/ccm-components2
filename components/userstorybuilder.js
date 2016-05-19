@@ -1,7 +1,7 @@
 ccm.component({
     name: 'userstorybuilder',
     config: {
-        html:  [ ccm.store, { local: './json/tutorial.json' } ],
+        html:  [ ccm.store, { local: './json/userstorybuilder.json' } ],
         key: 'test',
         style: [ ccm.load, './css/tutorial.css' ],
     },

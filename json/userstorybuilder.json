@@ -1,0 +1,69 @@
+{
+  "main": {
+    "tag": "div",
+    "class": "userstories"
+  },
+
+  "userstory": {
+    "tag": "div",
+    "class": "userstory",
+    "inner": [
+      {
+        "tag": "div",
+        "class": "headline",
+        "inner": "%headline%"
+      },
+      {
+        "tag": "div",
+        "class": "description",
+        "inner": "%description%"
+      },
+      {
+        "tag": "div",
+        "class": "value",
+        "inner": "%value%"
+      },
+      {
+        "tag": "div",
+        "class": "priority",
+        "inner": "%priority%"
+      },
+      {
+        "tag": "div",
+        "class": "effort",
+        "inner": "%effort%"
+      }
+    ]
+  },
+
+
+  "input": {
+    "tag": "div",
+    "class": "new_userstory",
+    "inner": [
+      {
+        "tag": "div",
+        "class": "headline"
+      },
+      {
+        "tag": "div",
+        "class": "description",
+        "inner": {
+          "tag": "form",
+          "inner": [
+            {
+              "tag": "input",
+              "placeholder": "description of the Userstory..."
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "value": "Send"
+            }
+          ],
+          "onsubmit": "%onsubmit%"
+        }
+      }
+    ]
+  }
+}

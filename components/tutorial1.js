@@ -3,7 +3,7 @@
  */
 
 ccm.component({
-    name: 'tutorial1',
+    name: 'chat',
     config: {
         html:  [ ccm.store, { local: './json/tutorial.json' } ],
         key: 'test',
@@ -28,6 +28,7 @@ ccm.component({
                     element.html( ccm.helper.html( self.html.get( 'main' ) ) );
                     var messages_div = ccm.helper.find( self, '.messages' );
                     for ( var i = 0; i < dataset.messages.length; i++ ) {
+                        var message = dataset.messages[i];
                         messages_div.append( ccm.helper.html( self.html.get( 'message' ), {
                             name: ccm.helper.val( message.user ),
                             text: ccm.helper.val( message.text )
@@ -37,8 +38,11 @@ ccm.component({
                         onsubmit: function () {
                             var value = ccm.helper.val( ccm.helper.find( self, 'input' ).val().trim() );
                             if ( value === '' ) return;
-                            dataset.messages.push( { user: self.user.data().key, text: value } );
-                            self.store.set( dataset, function () { self.render(); } );
+                            self.user.login(function (){
+                                dataset.messages.push( { user: self.user.data().key, text: value } );
+                                self.store.set( dataset, function () { self.render(); } );
+                            })
+
                             return false;
                         }
                     } ) );

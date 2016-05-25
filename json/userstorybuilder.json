@@ -1,69 +1,46 @@
 {
-  "main": {
-    "tag": "div",
-    "class": "userstories"
+  "key": "us",
+  "form":{
+    "button": true,
+    "onsubmit": "%%"
+},
+  "fieldset": "Formular",
+  "inputs":
+[
+  {
+    "label": "Headline",
+    "name": "headline",
+    "input": "text",
+    "placeholder": "Give your Userstory a Headline",
+    "required": true
   },
-
-  "userstory": {
-    "tag": "div",
-    "class": "userstory",
-    "inner": [
-      {
-        "tag": "div",
-        "class": "headline",
-        "inner": "%headline%"
-      },
-      {
-        "tag": "div",
-        "class": "description",
-        "inner": "%description%"
-      },
-      {
-        "tag": "div",
-        "class": "value",
-        "inner": "%value%"
-      },
-      {
-        "tag": "div",
-        "class": "priority",
-        "inner": "%priority%"
-      },
-      {
-        "tag": "div",
-        "class": "effort",
-        "inner": "%effort%"
-      }
-    ]
+  {
+    "label": "Description",
+    "name": "description",
+    "input": "text",
+    "placeholder": "Describe your Userstory",
+    "required": true
   },
-
-
-  "input": {
-    "tag": "div",
-    "class": "new_userstory",
-    "inner": [
-      {
-        "tag": "div",
-        "class": "headline"
-      },
-      {
-        "tag": "div",
-        "class": "description",
-        "inner": {
-          "tag": "form",
-          "inner": [
-            {
-              "tag": "input",
-              "placeholder": "description of the Userstory..."
-            },
-            {
-              "tag": "input",
-              "type": "submit",
-              "value": "Send"
-            }
-          ],
-          "onsubmit": "%onsubmit%"
-        }
-      }
-    ]
+  {
+    "label": "Effort",
+    "name": "effort",
+    "input": "text",
+    "placeholder": "How much effort does your Userstory cost?",
+    "required": true
+  },
+  {
+    "label": "Value",
+    "name": "valuee",
+    "input": "text",
+    "placeholder": "How much value does this Userstory have?",
+    "required": true
+  },
+  {
+    "label": "Priority",
+    "name": "priority",
+    "input": "text",
+    "placeholder": "What is the Priority of the Userstory?",
+    "required": true
   }
+]
 }

@@ -23,7 +23,7 @@ ccm.component( {
    */
   config: {
 
-    key: 'demo',
+    key: 'dublin',
     submit: function ( result ) { console.log( result ); },
     store: [ ccm.store, './json/input.json' ],
     style: [ ccm.load, './css/input.css' ]

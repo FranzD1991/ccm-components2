@@ -4,6 +4,14 @@ ccm.component({
         html:  [ ccm.store, { local: './json/userstorybuilder.json' } ],
         key: 'test',
         style: [ ccm.load, './css/tutorial.css' ],
+        submit: function () {
+            if(testInsert('getInhalt des Formulars')==='error'||'get Inhalt des Formulars'==='error'){
+                alert('Bitte alle Felder ausfüllen !');
+            }else{
+                us[n]=userstory(header,description,effort,priority,valuee,n);
+                n++;
+            }
+        }
     },
     Instance: function () {
         this.render=function(callback){
@@ -22,24 +30,31 @@ ccm.component({
                 this.va =va;
             }
             
-            function testInsert(){
-                
-            }
-            
-            function submitUS() {
-                us[n]=userstory(1,2,3,4,5);
-                n++;
+            function testInsert(ins){
+                if(true){
+                    return 'error'
+                }else{
+                    return 'success'
+                }
             }
 
-            function deleteUS() {
-                
+            function deleteUS(id) {
+                us[id]=null;
+                //Userstory mit der ID null setzen
             }
             
-            function getUS() {
-                
+            function getUS(id) {
+                // get Userstory by ID
+                return us[id]
             }
 
             function showallUS() {
+                for(j=1;j<us.length;j++){
+                    //Userstorys drucken
+                }
+            }
+
+            function changeUS(id) {
 
             }
             if(callback) callback();

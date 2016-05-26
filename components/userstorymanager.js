@@ -35,7 +35,7 @@ ccm.component({
                 '</div>' +
                 '<button class="submitus">Submit Userstory</button>' +
                 '<button class="showus">Show all Userstories</button> ' +
-                '<div class="userStories"></div>');
+                '<p class="userStories"></p>');
 
             var submitbutton = element.find('button.submitus');
             var showusbutton = element.find('button.showus');
@@ -44,17 +44,16 @@ ccm.component({
             var valuee=element.find('input.valuee');
             var priority=element.find('input.priority');
             var effort=element.find('input.effort');
-            var listus=element.find('div.userStories');
+            var listus=element.find('p.userStories');
 
             var n=0;
             var us= [];
 
-            var tuees = element.find('input.headline');
-            var wieso = 0;
             submitbutton.click(function(){
-                us[n]=Userstory(headline.val(),description.val(),priority.val(),effort.val(),valuee.val(),n);
-                console.log(us[0].hl);
+                us[n]=new Userstory(headline.val(),description.val(),priority.val(),effort.val(),valuee.val(),n);
+                console.log(us[n].hl,us[n].des,us[n].prio,us[n].eff,us[n].va,us[n].ident);
                 n++;
+                console.log(n);
             });
 
             function Userstory(hl,des,prio,eff,va,nn){
@@ -64,14 +63,6 @@ ccm.component({
                 this.eff = eff;
                 this.va =va;
                 this.ident=nn;
-            }
-
-            function testInsert(ins){
-                if(true){
-                    return 'error';
-                }else{
-                    return 'success';
-                }
             }
 
             function deleteUS(id) {
@@ -84,11 +75,15 @@ ccm.component({
                 return us[id]
             }
 
-            function showallUS() {
+            showusbutton.click(function() {
+                var printus='';
                 for(j=1;j<us.length;j++){
                     //Userstorys drucken
+                    printus=printus+'</br>'+'Header:'+us[j].hl+'/Description:'+us[j].des
+                        +'/Priority:'+us[j].prio+'/Effort:'+us[j].eff+'/Value:'+us[j].va+'/ID:'+us[j].ident;
                 }
-            }
+                listus.html(printus);
+            });
 
             function changeUS(id) {
 

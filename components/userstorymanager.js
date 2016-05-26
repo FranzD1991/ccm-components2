@@ -15,9 +15,6 @@ ccm.component({
             element.html( ' <form><input>test 2</input>' +
                 '<textarea id="description">Describe your Userstory</textarea></form>' +
                 '<p id="doit1">Hello, World!</p>' );
-            if(getElementID('description')){
-                element.html('erfolg');
-            }
             var n=0;
             var us= [];
             function Userstory(hl,des,prio,eff,va){

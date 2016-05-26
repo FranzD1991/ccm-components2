@@ -14,7 +14,7 @@ ccm.component( {
      * @memberOf ccm.components.input
      * @type {ccm.name}
      */
-    name: 'input',
+    name: 'userstorybuilder',
 
     /**
      * @summary default instance configuration
@@ -138,52 +138,6 @@ ccm.component( {
                             delete input.values[ i ].inner[ 0 ].caption;
                         }
                         input = input.values;
-                    }
-
-                    if ( input.input === 'checkbox' ) {
-                        if ( input.values ) {
-                            for ( var i = 0; i < input.values.length; i++ ) {
-                                input.values[ i ].tag = input.tag;
-                                input.values[ i ].type = input.type;
-                                input.values[ i ].value = input.values[ i ].value || input.values[ i ].name;
-                                input.values[ i ] = {
-                                    tag: 'label',
-                                    inner: [
-                                        input.values[ i ],
-                                        {
-                                            "tag": "span",
-                                            "inner": "&nbsp;"
-                                        },
-                                        {
-                                            "tag": "span",
-                                            "inner": input.values[ i ].caption || input.values[ i ].value
-                                        },
-                                        {
-                                            "tag": "span",
-                                            "inner": "&nbsp;&nbsp;&nbsp;"
-                                        }
-                                    ]
-                                };
-                                delete input.values[ i ].inner[ 0 ].caption;
-                            }
-                            input = input.values;
-                        }
-                        else {
-                            input.id = self.index + '-' + input.name;
-                            label = { tag: 'label', for: input.id, inner: label };
-                            input = [
-                                input,
-                                {
-                                    "tag": "span",
-                                    "inner": "&nbsp;"
-                                },
-                                {
-                                    "tag": "span",
-                                    "inner": input.caption
-                                }
-                            ];
-                            delete input[ 0 ].caption;
-                        }
                     }
 
                     if ( input.input === 'select' ) {

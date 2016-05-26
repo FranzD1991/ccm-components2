@@ -13,17 +13,57 @@ ccm.component({
             ccm.helper.element(this);
             var element = ccm.helper.element( this );
 
-            element.html(
-                '<br><input id="header">Headline</input></br>' +
-                '<textarea id="description">Describe your Userstory</textarea></form>');
+            element.html('<div class="eingabe">' +
+                '<div class="row">' +
+                'Headline ' +
+                '<input class="headline">' +
+                '</div>' +
+                '<div class="row">' +
+                '<textarea class="description">Describe your Userstory</textarea>' +
+                '</div>' +
+                '<div class="row">' +
+                'Effort ' +
+                '<input class="effort">' +
+                '</div>' +
+                '<div class="row">' +
+                'Value ' +
+                '<input class="valuee">' +
+                '</div>' +
+                '<div class="row">' +
+                'Priority ' +
+                '<input class="priority">' +
+                '</div>' +
+                '<button class="submitus">Submit Userstory</button>' +
+                '<button class="showus">Show all Userstories</button> ' +
+                '<div class="userStories"></div>');
+
+            var submitbutton = element.find('button.submitus');
+            var showusbutton = element.find('button.showus');
+            var headline=element.find('input.headline');
+            var description=element.find('textarea.description');
+            var valuee=element.find('input.valuee');
+            var priority=element.find('input.priority');
+            var effort=element.find('input.effort');
+            var listus=element.find('div.userStories');
+
             var n=0;
             var us= [];
-            function Userstory(hl,des,prio,eff,va){
+
+            var tuees = element.find('input.headline');
+            var wieso = 0;
+            submitbutton.click(function(){
+                us[n]=Userstory(headline.val(),description.val(),priority.val(),effort.val(),valuee.val(),n);
+                console.log(us[0].hl);
+                n++;
+            });
+
+            function Userstory(hl,des,prio,eff,va,nn){
                 this.hl = hl;
                 this.des = des;
                 this.prio = prio;
                 this.eff = eff;
                 this.va =va;
+                this.ident=nn;
             }
 
             function testInsert(ins){
@@ -52,15 +92,6 @@ ccm.component({
 
             function changeUS(id) {
 
-            }
-            
-            function submitUS() {
-                if(testInsert('getInhalt des Formulars')==='error'||'get Inhalt des Formulars'==='error'){
-                    alert('Bitte alle Felder ausfüllen !');
-                }else{
-                    us[n]=userstory(header,description,effort,priority,valuee,n);
-                    n++;
-                }
             }
 
             if(callback) callback();

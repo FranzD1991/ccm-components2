@@ -12,9 +12,10 @@ ccm.component({
         this.render=function(callback){
             ccm.helper.element(this);
             var element = ccm.helper.element( this );
-            element.html( ' <form><input>test 2</input>' +
-                '<textarea id="description">Describe your Userstory</textarea></form>' +
-                '<p id="doit1">Hello, World!</p>' );
+
+            element.html(
+                '<br><input id="header">Headline</input></br>' +
+                '<textarea id="description">Describe your Userstory</textarea></form>');
             var n=0;
             var us= [];
             function Userstory(hl,des,prio,eff,va){

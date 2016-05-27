@@ -33,9 +33,18 @@ ccm.component({
                 'Priority ' +
                 '<input class="priority">' +
                 '</div>' +
+                '<div class="row">' +
                 '<button class="submitus">Submit Userstory</button>' +
                 '<button class="showus">Show all Userstories</button> ' +
-                '<p class="userStories"></p>');
+                '</div>' +
+                '<div class="row">' +
+                '<input class="deleteid">' +
+                '<button class="deletebutton">Delete Userstory</button>' +
+                '</div>' +
+                '<div class="userStories"></div>');
+
+            var deleteid = element.find('input.deleteid');
+            var deletebutton = element.find('button.deletebutton');
 
             var submitbutton = element.find('button.submitus');
             var showusbutton = element.find('button.showus');
@@ -44,8 +53,9 @@ ccm.component({
             var valuee=element.find('input.valuee');
             var priority=element.find('input.priority');
             var effort=element.find('input.effort');
-            var listus=element.find('p.userStories');
+            var listus=element.find('div.userStories');
 
+            var userstorieshidden = true;
             var n=0;
             var us= [];
 
@@ -65,10 +75,10 @@ ccm.component({
                 this.ident=nn;
             }
 
-            function deleteUS(id) {
-                us[id]=null;
+            deletebutton.click(function () {
+                us[deleteid.val()]=null;
                 //Userstory mit der ID null setzen
-            }
+            });
 
             function getUS(id) {
                 // get Userstory by ID
@@ -77,10 +87,25 @@ ccm.component({
 
             showusbutton.click(function() {
                 var printus='';
-                for(j=1;j<us.length;j++){
-                    //Userstorys drucken
-                    printus=printus+'</br>'+'Header:'+us[j].hl+'/Description:'+us[j].des
-                        +'/Priority:'+us[j].prio+'/Effort:'+us[j].eff+'/Value:'+us[j].va+'/ID:'+us[j].ident;
+                if(userstorieshidden){
+                    for(j=1;j<us.length;j++){
+                        //Userstorys drucken
+                        if(us[j]!==null){
+                            printus=printus+'<p class="userstory">' +
+                                'Header:'+us[j].hl +
+                                '</br>Description:'+us[j].des+
+                                '</br>Priority:'+us[j].prio +
+                                '</br>Effort:'+us[j].eff +
+                                '</br>Value:'+us[j].va +
+                                '</br>ID:'+us[j].ident +
+                                '</p>'
+                        }
+                        userstorieshidden = false;
+                        showusbutton.html('Hide all Userstories');
+                    }
+                }else {
+                    userstorieshidden = true;
+                    showusbutton.html('Show all Userstories');
                 }
                 listus.html(printus);
             });

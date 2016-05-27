@@ -5,34 +5,35 @@
 ccm.component({
     name: 'userstorymanager',
     config: {
-        html:  [ ccm.store, { local: './json/userstorybuilder.json' } ],
-        style: [ ccm.load, './css/tutorial.css' ]
+        style: [ ccm.load, './css/userstorymanager.css' ]
     },
     Instance: function () {
         this.render=function(callback){
             ccm.helper.element(this);
             var element = ccm.helper.element( this );
 
-            element.html('<div class="eingabe">' +
-                '<div class="row">' +
-                'Headline ' +
-                '<input class="headline">' +
+            element.html('<div class="row">' +
+                '<input class="headline" placeholder="Headline">' +
                 '</div>' +
                 '<div class="row">' +
-                '<textarea class="description">Describe your Userstory</textarea>' +
+                '<textarea class="description" placeholder="Describe your Userstory"></textarea>' +
+                '</div>' +
+                '<div class="eingabe">' +
+                '<div class="row">' +
+                '<span class="block">Effort</span>' +
+                '<input class="effort" type="range" min="1" max="5">' +
+                '<span class="effort_count"></span>' +
                 '</div>' +
                 '<div class="row">' +
-                'Effort ' +
-                '<input class="effort">' +
+                '<span class="block">Value</span>' +
+                '<input class="valuee" type="range" min="1" max="5">' +
+                '<span class="value_count"></span>' +
                 '</div>' +
                 '<div class="row">' +
-                'Value ' +
-                '<input class="valuee">' +
-                '</div>' +
-                '<div class="row">' +
-                'Priority ' +
-                '<input class="priority">' +
-                '</div>' +
+                '<span class="block">Priority</span>'+
+                '<input class="priority" type="range" min="1" max="5">' +
+                '<span class="priority_count"></span>' +
+                '</div></div>' +
                 '<div class="row">' +
                 '<button class="submitus">Submit Userstory</button>' +
                 '<button class="showus">Show all Userstories</button> ' +
@@ -42,6 +43,10 @@ ccm.component({
                 '<button class="deletebutton">Delete Userstory</button>' +
                 '</div>' +
                 '<div class="userStories"></div>');
+
+            var effort_count_value = element.find('span.effort_count');
+            var value_count_value = element.find('span.value_count');
+            var priority_count_value = element.find('span.priority_count');
 
             var deleteid = element.find('input.deleteid');
             var deletebutton = element.find('button.deletebutton');
@@ -58,6 +63,38 @@ ccm.component({
             var userstorieshidden = true;
             var n=0;
             var us= [];
+
+            effort_count_value.html( effort.val() );
+            value_count_value.html( valuee.val() );
+            priority_count_value.html( priority.val() );
+
+            var effort_count_val = effort.val();
+            var valuee_count_val = valuee.val();
+            var priority_count_val = priority.val();
+
+            effort.on( 'input', function() {
+                if (effort_count_val !== effort.val()){
+                    effort_count_val = effort.val();
+                    effort_count_value.html( effort_count_val );
+                    show_next_number();
+                }
+            });
+
+            valuee.on( 'input', function() {
+                if (valuee_count_val !== valuee.val()){
+                    valuee_count_val = valuee.val();
+                    value_count_value.html( valuee_count_val );
+                    show_next_number();
+                }
+            });
+
+            priority.on( 'input', function() {
+                if (priority_count_val !== priority.val()){
+                    priority_count_val = priority.val();
+                    priority_count_value.html( priority_count_val );
+                    show_next_number();
+                }
+            });
 
             submitbutton.click(function(){
                 us[n]=new Userstory(headline.val(),description.val(),priority.val(),effort.val(),valuee.val(),n);

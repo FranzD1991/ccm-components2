@@ -12,7 +12,7 @@ ccm.component({
             ccm.helper.element(this);
             var element = ccm.helper.element( this );
 
-            element.html('<div class="row">' +
+            element.html('<div class="builder"><div class="row">' +
                 '<input class="headline" placeholder="Headline">' +
                 '</div>' +
                 '<div class="row">' +
@@ -54,7 +54,7 @@ ccm.component({
                 '</div> ' +
                 '<div class="row">' +
                 '<button class="clearallus">Clear Storage</button>' +
-                '</div> ' +
+                '</div> </div> ' +
                 '<div class="userStories"></div>');
 
             // Variablenbelegung
@@ -149,12 +149,6 @@ ccm.component({
                 us[deleteid.val()]=null;
                 //Userstory mit der ID null setzen
             });
-
-            //Ausgabe einer Userstory
-            function getUS(id) {
-                // get Userstory by ID
-                return us[id]
-            }
 
             //Ausgabe aller Userstories
             showusbutton.click(function() {

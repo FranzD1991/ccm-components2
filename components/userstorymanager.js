@@ -132,6 +132,7 @@ ccm.component({
                 n++;
                 //Konsolenausgabe zu Testzwecken
                 //console.log(n);
+                showallus();
             });
 
             //Definition einer Userstory
@@ -148,12 +149,26 @@ ccm.component({
             deletebutton.click(function () {
                 us[deleteid.val()]=null;
                 //Userstory mit der ID null setzen
+                showallus();
             });
 
             //Ausgabe aller Userstories
-            showusbutton.click(function() {
+            showusbutton.click(function(){
+                if(userstorieshidden) {
+                    showallus();
+                }else{
+                    hideallus();
+                }
+            });
+
+            function hideallus(){
+                userstorieshidden=true;
+                showusbutton.html('Show all Userstories');
+                listus.html('')
+            }
+
+            function showallus() {
                 var printus='';
-                if(userstorieshidden){
                     for(j=0;j<us.length;j++){
                         //Userstorys drucken
                         if(us[j]!==null){
@@ -166,15 +181,11 @@ ccm.component({
                                 '</br>ID:'+us[j].ident +
                                 '</p>'
                         }
-                        userstorieshidden = false;
-                        showusbutton.html('Hide all Userstories');
                     }
-                }else {
-                    userstorieshidden = true;
-                    showusbutton.html('Show all Userstories');
-                }
                 listus.html(printus);
-            });
+                showusbutton.html('Hide all Userstories');
+                userstorieshidden=false;
+            }
 
             //Userstories lokal zwischenspeichern
             storeall.click(function (){
@@ -206,6 +217,12 @@ ccm.component({
             clearall.click(function () {
                 localStorage.clear();
             });
+
+            //Highlight high Priority Userstories
+
+            //Highlight High effort Userstories
+
+            //Highlight high value Userstories
 
             if(callback) callback();
         }

@@ -17,21 +17,29 @@ ccm.component( {
         };
         self.render = function ( callback ) {
             var element = ccm.helper.element( self );
-            self.store.get( self.key, function ( dataset ) {  // Angabe einer anonymen Funktion,
+
+            // Laden der bereits vorhandenen Daten
+            self.store.get( self.key, function ( dataset ) {
+
+                // Falls keine Daten vorhanden
                 if ( dataset === null )
                     self.store.set( { key: self.key, messages: [] }, proceed );
                 else
+                    // Daten vorhanden
                     proceed( dataset );
+
+                // Vorhandene Daten laden
                 function proceed( dataset ) {
                     element.html( ccm.helper.html( self.html.get( 'main' ) ) );
-                    var messages_div = ccm.helper.find( self, '.messages' );
+                    var messages_div = ccm.helper.find( self, '.messages' );//hier statt messages manager
                     for ( var i = 0; i < dataset.messages.length; i++ ) {
                         var message = dataset.messages[ i ];
-                        messages_div.append( ccm.helper.html( self.html.get( 'message' ), {
+                        messages_div.append( ccm.helper.html( self.html.get( 'message' ), { //userstory ansteuern
                             name: message.user,
                             text: message.text
                         } ) );
                     }
+
                     messages_div.append( ccm.helper.html( self.html.get( 'input' ), {  // Anhängen des
                         onsubmit: function () {
                             var value = ccm.helper.val( ccm.helper.find( self, 'input' ).val().trim() );

@@ -1,34 +1,90 @@
 {
-  "main": {
+  "header": {
     "tag": "div",
-    "class": "messages"
-  },
-
-  "message": {
-    "tag": "div",
-    "class": "message",
+    "class": "header",
     "inner": [
       {
-        "tag": "div",
-        "class": "name",
-        "inner": "%name%"
-      },
-      {
-        "tag": "div",
-        "class": "text",
+        "tag": "text",
+        "class": "title",
+        "id": "header-text",
         "inner": "%text%"
+      }, {
+        "tag": "input",
+        "type": "submit",
+        "id":"items-button",
+        "onclick": "%onclickItems%",
+        "value": "Items"
+      },{
+        "tag": "input",
+        "type": "submit",
+        "id": "done-button",
+        "onclick": "%onclickDone%",
+        "value": "Erledigt"
       }
     ]
   },
-
-  "input": {
+  "main": {
     "tag": "div",
-    "class": "new_message",
-    "inner": [
+    "class": "main",
+    "id": "main",
+    "inner":
+    [
       {
         "tag": "div",
-        "class": "name"
-      },
+        "class": "header"
+      },{
+      "tag": "div",
+      "class": "items"
+    },{
+      "tag": "div",
+      "class": "items-input"
+    }
+    ]
+  },
+  "nav": {
+    "tag": "div",
+    "class": "navigation",
+    "id": "navigation",
+    "inner": [
+      {
+        "tag": "text",
+        "inner": "ToDo",
+        "onclick": "%onclick%",
+        "id":"todo"
+      },{
+        "tag": "text",
+        "inner": "Done",
+        "onclick": "%onclick2%",
+        "id":"done"
+      }
+    ]
+  },
+  "item": {
+    "tag": "div",
+    "class": "item",
+    "inner": [
+      {
+        "tag": "input",
+        "type": "checkBox",
+        "class": "checkBox",
+        "onclick": "%onclick%",
+        "id": "%id%"
+      },{
+        "tag": "div",
+        "class": "text",
+        "inner": "%text%"
+      },{
+        "tag": "div",
+        "class": "date",
+        "inner": "%date%"
+      }
+    ]
+  },
+  "input": {
+    "tag": "div",
+    "class": "input_item",
+    "id": "items-input",
+    "inner": [
       {
         "tag": "div",
         "class": "text",
@@ -37,17 +93,34 @@
           "inner": [
             {
               "tag": "input",
-              "placeholder": "Enter message here..."
-            },
-            {
+              "type": "text",
+              "id": "input-text",
+              "placeholder": "Geben Sie ein Item ein..."
+            }, {
+              "tag": "input",
+              "type": "date",
+              "id": "input-date"
+            },{
               "tag": "input",
               "type": "submit",
-              "value": "Send"
+              "value": "hinzufÃ¼gen"
             }
           ],
           "onsubmit": "%onsubmit%"
         }
       }
     ]
-  }
-}
+  },
+  "clear": {
+    "tag": "div",
+    "class": "input_item",
+    "inner": [
+      {
+        "tag": "input",
+        "type": "submit",
+        "id": "clear-button",
+        "onclick": "%onclickclear%",
+        "value": "Items lÃ¶schen"}]}}
+
+
+

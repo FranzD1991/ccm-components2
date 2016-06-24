@@ -1,0 +1,132 @@
+{
+  "main": {
+    "tag": "div",
+    "class": "manager"
+  },
+
+  "userstory": {
+    "tag": "div",
+    "class": "userstory",
+    "inner": [
+      {
+        "tag": "div",
+        "class": "headline",
+        "inner": "%headline%"
+      },
+      {
+        "tag": "div",
+        "class": "name",
+        "inner": "%name%"
+      },
+      {
+        "tag": "div",
+        "class": "description",
+        "inner": "%description%"
+      },
+      {
+        "tag": "div",
+        "class": "effort",
+        "inner": "%effort%"
+      },
+      {
+        "tag": "div",
+        "class": "wert",
+        "inner": "%wert%"
+      },
+      {
+        "tag": "div",
+        "class": "priority",
+        "inner": "%priority%"
+      }
+    ]
+  },
+
+  "input": {
+    "tag": "div",
+    "class": "new_userstory",
+    "inner":[
+      {
+        "tag": "div",
+        "class": "name"
+      },
+      {
+        "tag":"div",
+        "class":"inhalt",
+        "inner":{
+          "tag": "form",
+          "inner":[
+
+            {
+              "tag":"div",
+              "name":"headline",
+              "id":"ueberschrift",
+              "inner":[
+                {
+                  "tag":"input",
+                  "placeholder":"Enter headline..."
+                }
+              ]
+            },
+            {
+              "tag":"div",
+              "name":"description",
+              "id":"beschreibung",
+              "inner":[
+                {
+                  "tag":"input",
+                  "placeholder":"Enter description..."
+                }
+              ]
+            },
+            {
+              "tag":"div",
+              "name":"effort",
+              "id":"aufwand",
+              "inner":[
+                {
+                  "tag":"input",
+                  "placeholder":"Enter effort..."
+                }
+              ]
+            },
+            {
+              "tag":"div",
+              "name":"wert",
+              "id":"wertvoll",
+              "inner":[
+                {
+                  "tag":"input",
+                  "placeholder":"Enter value..."
+                }
+              ]
+            },
+            {
+              "tag":"div",
+              "name":"priority",
+              "id":"prioritaet",
+              "inner":[
+                {
+                  "tag":"input",
+                  "placeholder":"Enter priority..."
+                }
+              ]
+            },
+            {
+              "tag":"div",
+              "class":"menu",
+              "inner":[
+                {
+                  "tag": "input",
+                  "type": "submit",
+                  "id":"submituserstory",
+                  "value": "Send"
+                }
+              ],
+              "onsubmit": "%onsubmit%"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

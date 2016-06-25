@@ -46,6 +46,26 @@
     ]
   },
 
+  "effortmaster":{
+    "tag":"div",
+    "class":"superrow",
+    "inner":[
+      {
+        "tag": "input",
+        "id":"effort",
+        "type": "range",
+        "min":"1",
+        "max":"5"
+      },
+      {
+        "tag":"span",
+        "class":"count_effort",
+        "id":"counteff"
+      }
+    ],
+    "onchange":"%onchange%"
+  },
+
   "input": {
     "tag": "div",
     "class": "new_userstory",
@@ -110,8 +130,8 @@
                 },
                 {
                   "tag":"span",
-                  "id":"counteff",
-                  "value":"effcounter"
+                  "class":"counter",
+                  "id":"count_effort"
                 }
               ]
             },
@@ -130,6 +150,11 @@
                   "type": "range",
                   "min":"1",
                   "max":"5"
+                },
+                {
+                  "tag":"span",
+                  "class":"counter",
+                  "id":"count_wert"
                 }
               ]
             },
@@ -148,6 +173,11 @@
                   "type": "range",
                   "min":"1",
                   "max":"5"
+                },
+                {
+                  "tag":"span",
+                  "class":"counter",
+                  "id":"count_priority"
                 }
               ]
             },
@@ -164,6 +194,7 @@
               ]
             }
           ],
+          "onchange": "%onchange%",
           "onsubmit": "%onsubmit%"
         }
       }
@@ -195,5 +226,14 @@
         }
       }
     ]
+  },
+  "sortwer":{
+
+  },
+  "sortprio":{
+
+  },
+  "sorteff":{
+
   }
 }

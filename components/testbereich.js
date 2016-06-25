@@ -10,11 +10,13 @@ ccm.component( {
         user:  [ ccm.instance, 'http://kaul.inf.h-brs.de/ccm/components/user2.js' ]
     },
     Instance: function () {
+
         var self = this;
         self.init = function ( callback ) {
             self.store.onChange = function () { self.render(); };
             callback();
         };
+
         self.render = function ( callback ) {
             var element = ccm.helper.element( self );
 
@@ -23,6 +25,7 @@ ccm.component( {
 
                 // Falls keine Daten vorhanden
                 if ( dataset === null )
+
                     self.store.set( { key: self.key, manager: [] }, proceed );
                 else
                 // Daten vorhanden
@@ -31,6 +34,7 @@ ccm.component( {
                 // Vorhandene Daten laden
                 function proceed( dataset ) {
                     element.html( ccm.helper.html( self.html.get( 'main' ) ) );
+
                     var userstories_div = ccm.helper.find( self, '.manager' );
 
                     //Delete Block laden
@@ -40,16 +44,29 @@ ccm.component( {
                             if ( id === '' ) return;
                             self.deleteStory(id);
                             return false;
-                        }                              // input-Templates
+                        }
                     } ) );
 
                     userstories_div.append( ccm.helper.html( self.html.get( 'input' ), {
+                        onchange: function () {
+                            var effort = ccm.helper.val( ccm.helper.find( self, '#effort' ).val().trim() );
+                            var wert = ccm.helper.val( ccm.helper.find( self, '#wert' ).val().trim() );
+                            var priority = ccm.helper.val( ccm.helper.find( self, '#priority' ).val().trim() );
+
+                            var effortaim =element.find("#count_effort");
+                            effortaim.html(effort);
+                            var wertaim =element.find("#count_wert");
+                            wertaim.html(wert);
+                            var priorityaim =element.find("#count_priority");
+                            priorityaim.html(priority);
+                        },
                         onsubmit: function () {
                             var headline = ccm.helper.val( ccm.helper.find( self, '#headline' ).val().trim() );
                             var description = ccm.helper.val( ccm.helper.find( self, '#description' ).val().trim() );
                             var effort = ccm.helper.val( ccm.helper.find( self, '#effort' ).val().trim() );
                             var wert = ccm.helper.val( ccm.helper.find( self, '#wert' ).val().trim() );
                             var priority = ccm.helper.val( ccm.helper.find( self, '#priority' ).val().trim() );
+                            
                             if ( headline === '' ) return;
                             self.user.login( function () {
                                 var timestamp = Math.floor(((Math.random() + new Date().getUTCMilliseconds()) * new Date().getUTCMilliseconds()));
@@ -67,10 +84,11 @@ ccm.component( {
                                     } );
                             } );
                             return false;
-                        }                              // input-Templates
+                        }
                     } ) );
 
                     for ( var i = 0; i < dataset.manager.length; i++ ) {
+
                         var userstory = dataset.manager[ i ];
                         self.store.get(userstory, function (data) {
                             userstories_div.append( ccm.helper.html( self.html.get( 'userstory' ), {
@@ -84,10 +102,10 @@ ccm.component( {
                             } ) );
                         });
                     }
-
-                    if ( callback ) callback();
+                              if ( callback ) callback();
                 }
             } );
+
             if ( callback ) callback();
         };
 

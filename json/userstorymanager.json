@@ -55,74 +55,99 @@
         "inner":{
           "tag": "form",
           "inner":[
-
             {
               "tag":"div",
-              "name":"headline",
-              "id":"ueberschrift",
+              "class":"row",
               "inner":[
                 {
-                  "tag":"input",
-                  "placeholder":"Enter headline..."
+                  "tag": "input",
+                  "id":"headline",
+                  "placeholder": "Enter headline here..."
                 }
               ]
             },
             {
               "tag":"div",
-              "name":"description",
-              "id":"beschreibung",
+              "class":"row",
+              "id":"description",
               "inner":[
                 {
-                  "tag":"input",
-                  "placeholder":"Enter description..."
+                  "tag": "input",
+                  "placeholder": "Enter description here..."
                 }
               ]
             },
             {
               "tag":"div",
-              "name":"effort",
-              "id":"aufwand",
+              "class":"row",
+              "id":"effort",
               "inner":[
                 {
-                  "tag":"input",
-                  "placeholder":"Enter effort..."
+                  "tag": "input",
+                  "placeholder": "Enter effort here..."
                 }
               ]
             },
             {
               "tag":"div",
-              "name":"wert",
-              "id":"wertvoll",
+              "class":"row",
+              "id":"wert",
               "inner":[
                 {
-                  "tag":"input",
-                  "placeholder":"Enter value..."
+                  "tag": "input",
+                  "placeholder": "Enter value here..."
                 }
               ]
             },
             {
               "tag":"div",
-              "name":"priority",
-              "id":"prioritaet",
+              "class":"row",
+              "id":"priority",
               "inner":[
                 {
-                  "tag":"input",
-                  "placeholder":"Enter priority..."
+                  "tag": "input",
+                  "placeholder": "Enter priority here..."
                 }
               ]
             },
             {
               "tag":"div",
-              "class":"menu",
+              "class":"row",
               "inner":[
                 {
                   "tag": "input",
                   "type": "submit",
-                  "id":"submituserstory",
+                  "id":"submitus",
                   "value": "Send"
                 }
-              ],
-              "onsubmit": "%onsubmit%"
+              ]
+            }
+          ],
+          "onsubmit": "%onsubmit%"
+        }
+      }
+    ]
+  },
+  "sucheus": {
+    "tag":"div",
+    "class":"suche_userstory",
+    "inner":[
+      {
+        "tag": "div",
+        "class": "inhalt",
+        "inner": {
+          "tag": "form",
+          "inner": [
+            {
+              "tag": "input",
+              "placeholder": "search for userstory headline..."
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "id":"searchus",
+              "onclick":"%onclick%",
+              "value": "Send"
             }
           ]
         }

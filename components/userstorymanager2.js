@@ -5,7 +5,7 @@ ccm.component( {
     config: {                    // Standardkonfiguration für ccm-Instanzen
         html:  [ ccm.store, { local: './json/userstorymanager.json' } ],
         key: 'test',  // Standardwert für den Schlüssel des zu visualisierenden Datensatzes
-        store: [ ccm.store, { url: 'ws://ccm2.inf.h-brs.de/index.js', store: 'chattestfdahma2s2' } ],
+        store: [ ccm.store, { url: 'ws://ccm2.inf.h-brs.de/index.js', store: 'chattestfdahma2s4' } ],
         //style: [ ccm.load, './css/userstorystyle.css' ],
         user:  [ ccm.instance, 'http://kaul.inf.h-brs.de/ccm/components/user2.js' ]
     },
@@ -46,20 +46,20 @@ ccm.component( {
 
                     userstories_div.append( ccm.helper.html( self.html.get( 'input' ), {
                         onsubmit: function () {
-                            var ueber = ccm.helper.val( ccm.helper.find( self, '#ueberschrift' ).val().trim() );
-                            var beschreibun = ccm.helper.val( ccm.helper.find( self, '#beschreibung' ).val().trim() );
-                            var aufwan = ccm.helper.val( ccm.helper.find( self, '#aufwand' ).val().trim() );
-                            var wertvol = ccm.helper.val( ccm.helper.find( self, '#wertvoll' ).val().trim() );
-                            var prioritae = ccm.helper.val( ccm.helper.find( self, '#prioritaet' ).val().trim() );
-                            if ( ueber === '' ) return;
-                            self.user.login( function () {  // Nutzung der user-Instanz für Authentifizierung
+                            var headline = ccm.helper.val( ccm.helper.find( self, '#headline' ).val().trim() );
+                            var description = ccm.helper.val( ccm.helper.find( self, '#description' ).val().trim() );
+                            var effort = ccm.helper.val( ccm.helper.find( self, '#effort' ).val().trim() );
+                            var wert = ccm.helper.val( ccm.helper.find( self, '#wert' ).val().trim() );
+                            var priority = ccm.helper.val( ccm.helper.find( self, '#priority' ).val().trim() );
+                            if ( headline === '' ) return;
+                            self.user.login( function () {
                                 dataset.manager.push( {
                                     user: self.user.data().key,
-                                    headline: ueber,
-                                    description: beschreibun,
-                                    effort: aufwan,
-                                    wert: wertvol,
-                                    priority: prioritae
+                                    headline: headline,
+                                    description: description,
+                                    effort: effort,
+                                    wert: wert,
+                                    priority: priority
                                 } );
                                 self.store.set( dataset, function () { self.render(); } );
                             } );

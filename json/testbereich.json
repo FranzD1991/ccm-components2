@@ -219,7 +219,7 @@
               "tag": "input",
               "type": "submit",
               "id":"searchus",
-              "onclick":"%onsubmit%",
+              "onclick":"%onclick%",
               "value": "Delete Userstory"
             }
           ]
@@ -227,13 +227,48 @@
       }
     ]
   },
+  "sortini":{
+    "tag":"div",
+    "class":"row",
+    "inner":"Sort Userstories according to:"
+  },
   "sortwer":{
-
+    "tag":"div",
+    "class":"row",
+    "inner":[
+      {
+        "tag":"input",
+        "type":"submit",
+        "id":"sortwerte",
+        "onclick":"%onclick%",
+        "value":"Value"
+      }
+    ]
   },
   "sortprio":{
-
+    "tag":"div",
+    "class":"row",
+    "inner":[
+      {
+        "tag":"input",
+        "type":"submit",
+        "id":"sortpriority",
+        "onclick":"%onclick%",
+        "value":"Priority"
+      }
+    ]
   },
   "sorteff":{
-
+    "tag":"div",
+    "class":"row",
+    "inner":[
+      {
+        "tag":"input",
+        "type":"submit",
+        "id":"sorteffort",
+        "onclick":"%onclick%",
+        "value":"Effort"
+      }
+    ]
   }
 }

@@ -10,6 +10,11 @@
     "inner": [
       {
         "tag": "div",
+        "class": "key",
+        "inner": "%key%"
+      },
+      {
+        "tag": "div",
         "class": "headline",
         "inner": "%headline%"
       },
@@ -41,6 +46,26 @@
     ]
   },
 
+  "effortmaster":{
+    "tag":"div",
+    "class":"superrow",
+    "inner":[
+      {
+        "tag": "input",
+        "id":"effort",
+        "type": "range",
+        "min":"1",
+        "max":"5"
+      },
+      {
+        "tag":"span",
+        "class":"count_effort",
+        "id":"counteff"
+      }
+    ],
+    "onchange":"%onchange%"
+  },
+
   "input": {
     "tag": "div",
     "class": "new_userstory",
@@ -60,6 +85,11 @@
               "class":"row",
               "inner":[
                 {
+                  "tag":"div",
+                  "class":"definer",
+                  "inner":"Headline"
+                },
+                {
                   "tag": "input",
                   "id":"headline",
                   "placeholder": "Enter headline here..."
@@ -68,45 +98,86 @@
             },
             {
               "tag":"div",
+              "class":"definer",
+              "inner":"Description"
+            },
+            {
+              "tag":"div",
               "class":"row",
-              "id":"description",
               "inner":[
                 {
-                  "tag": "input",
+                  "tag": "textarea",
+                  "id":"description",
                   "placeholder": "Enter description here..."
                 }
               ]
             },
             {
               "tag":"div",
+              "class":"definer",
+              "inner":"Effort"
+            },
+            {
+              "tag":"div",
               "class":"row",
-              "id":"effort",
               "inner":[
                 {
                   "tag": "input",
-                  "placeholder": "Enter effort here..."
+                  "id":"effort",
+                  "type": "range",
+                  "min":"1",
+                  "max":"5"
+                },
+                {
+                  "tag":"span",
+                  "class":"counter",
+                  "id":"count_effort"
                 }
               ]
             },
             {
               "tag":"div",
+              "class":"definer",
+              "inner":"Value"
+            },
+            {
+              "tag":"div",
               "class":"row",
-              "id":"wert",
               "inner":[
                 {
                   "tag": "input",
-                  "placeholder": "Enter value here..."
+                  "id":"wert",
+                  "type": "range",
+                  "min":"1",
+                  "max":"5"
+                },
+                {
+                  "tag":"span",
+                  "class":"counter",
+                  "id":"count_wert"
                 }
               ]
             },
             {
               "tag":"div",
+              "class":"definer",
+              "inner":"Priority"
+            },
+            {
+              "tag":"div",
               "class":"row",
-              "id":"priority",
               "inner":[
                 {
                   "tag": "input",
-                  "placeholder": "Enter priority here..."
+                  "id":"priority",
+                  "type": "range",
+                  "min":"1",
+                  "max":"5"
+                },
+                {
+                  "tag":"span",
+                  "class":"counter",
+                  "id":"count_priority"
                 }
               ]
             },
@@ -118,19 +189,20 @@
                   "tag": "input",
                   "type": "submit",
                   "id":"submitus",
-                  "value": "Send"
+                  "value": "Save Userstory"
                 }
               ]
             }
           ],
+          "onchange": "%onchange%",
           "onsubmit": "%onsubmit%"
         }
       }
     ]
   },
-  "sucheus": {
+  "deleteus": {
     "tag":"div",
-    "class":"suche_userstory",
+    "class":"delete_userstory",
     "inner":[
       {
         "tag": "div",
@@ -140,17 +212,62 @@
           "inner": [
             {
               "tag": "input",
-              "placeholder": "search for userstory headline..."
+              "id": "us-delete-id",
+              "placeholder": "delete user story id"
             },
             {
               "tag": "input",
               "type": "submit",
               "id":"searchus",
               "onclick":"%onclick%",
-              "value": "Send"
+              "value": "Delete Userstory"
             }
           ]
         }
+      }
+    ]
+  },
+  "sortini":{
+    "tag":"div",
+    "class":"row",
+    "inner":"Sort Userstories according to:"
+  },
+  "sortwer":{
+    "tag":"div",
+    "class":"row",
+    "inner":[
+      {
+        "tag":"input",
+        "type":"submit",
+        "id":"sortwerte",
+        "onclick":"%onclick%",
+        "value":"Value"
+      }
+    ]
+  },
+  "sortprio":{
+    "tag":"div",
+    "class":"row",
+    "inner":[
+      {
+        "tag":"input",
+        "type":"submit",
+        "id":"sortpriority",
+        "onclick":"%onclick%",
+        "value":"Priority"
+      }
+    ]
+  },
+  "sorteff":{
+    "tag":"div",
+    "class":"row",
+    "inner":[
+      {
+        "tag":"input",
+        "type":"submit",
+        "id":"sorteffort",
+        "onclick":"%onclick%",
+        "value":"Effort"
       }
     ]
   }

@@ -46,26 +46,6 @@
     ]
   },
 
-  "effortmaster":{
-    "tag":"div",
-    "class":"superrow",
-    "inner":[
-      {
-        "tag": "input",
-        "id":"effort",
-        "type": "range",
-        "min":"1",
-        "max":"5"
-      },
-      {
-        "tag":"span",
-        "class":"count_effort",
-        "id":"counteff"
-      }
-    ],
-    "onchange":"%onchange%"
-  },
-
   "input": {
     "tag": "div",
     "class": "new_userstory",
@@ -92,6 +72,7 @@
                 {
                   "tag": "input",
                   "id":"headline",
+                  "class":"longfield",
                   "placeholder": "Enter headline here..."
                 }
               ]
@@ -107,6 +88,7 @@
               "inner":[
                 {
                   "tag": "textarea",
+                  "class":"longarea",
                   "id":"description",
                   "placeholder": "Enter description here..."
                 }
@@ -125,13 +107,15 @@
                   "tag": "input",
                   "id":"effort",
                   "type": "range",
+                  "class":"slider",
                   "min":"1",
                   "max":"5"
                 },
                 {
                   "tag":"span",
                   "class":"counter",
-                  "id":"count_effort"
+                  "id":"count_effort",
+                  "inner":"5"
                 }
               ]
             },
@@ -148,13 +132,15 @@
                   "tag": "input",
                   "id":"wert",
                   "type": "range",
+                  "class":"slider",
                   "min":"1",
                   "max":"5"
                 },
                 {
                   "tag":"span",
                   "class":"counter",
-                  "id":"count_wert"
+                  "id":"count_wert",
+                  "inner":"5"
                 }
               ]
             },
@@ -171,13 +157,15 @@
                   "tag": "input",
                   "id":"priority",
                   "type": "range",
+                  "class":"slider",
                   "min":"1",
                   "max":"5"
                 },
                 {
                   "tag":"span",
                   "class":"counter",
-                  "id":"count_priority"
+                  "id":"count_priority",
+                  "inner":"5"
                 }
               ]
             },
@@ -188,6 +176,7 @@
                 {
                   "tag": "input",
                   "type": "submit",
+                  "class":"menubutton",
                   "id":"submitus",
                   "value": "Save Userstory"
                 }
@@ -213,11 +202,13 @@
             {
               "tag": "input",
               "id": "us-delete-id",
-              "placeholder": "delete user story id"
+              "class":"littlefield",
+              "placeholder": "Delete ID"
             },
             {
               "tag": "input",
               "type": "submit",
+              "class":"littlebutton",
               "id":"searchus",
               "onclick":"%onclick%",
               "value": "Delete Userstory"
@@ -227,18 +218,33 @@
       }
     ]
   },
-  "sortini":{
+  "clearus":{
     "tag":"div",
-    "class":"row",
-    "inner":"Sort Userstories according to:"
-  },
-  "sortwer":{
-    "tag":"div",
-    "class":"row",
+    "class":"zusatzfunktion",
     "inner":[
       {
         "tag":"input",
         "type":"submit",
+        "class":"menubutton",
+        "id":"deleteallus",
+        "onclick":"%onclick%",
+        "value":"Delete all Userstories"
+      }
+    ]
+  },
+  "sortini":{
+    "tag":"div",
+    "class":"zusatzfunktion",
+    "inner":"Sort Userstories according to:"
+  },
+  "sortwer":{
+    "tag":"div",
+    "class":"zusatzfunktion",
+    "inner":[
+      {
+        "tag":"input",
+        "type":"submit",
+        "class":"menubutton",
         "id":"sortwerte",
         "onclick":"%onclick%",
         "value":"Value"
@@ -247,11 +253,12 @@
   },
   "sortprio":{
     "tag":"div",
-    "class":"row",
+    "class":"zusatzfunktion",
     "inner":[
       {
         "tag":"input",
         "type":"submit",
+        "class":"menubutton",
         "id":"sortpriority",
         "onclick":"%onclick%",
         "value":"Priority"
@@ -260,11 +267,12 @@
   },
   "sorteff":{
     "tag":"div",
-    "class":"row",
+    "class":"zusatzfunktion",
     "inner":[
       {
         "tag":"input",
         "type":"submit",
+        "class":"menubutton",
         "id":"sorteffort",
         "onclick":"%onclick%",
         "value":"Effort"

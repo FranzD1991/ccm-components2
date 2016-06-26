@@ -9,39 +9,104 @@
     "class": "userstory",
     "inner": [
       {
-        "tag": "div",
-        "class": "key",
-        "inner": "%key%"
+        "tag":"div",
+        "class":"srow",
+        "inner":[
+          {
+            "tag":"span",
+            "class":"keydis",
+            "inner":"Key:"
+          },
+          {
+            "tag": "span",
+            "class": "key",
+            "inner": "%key%"
+          }
+        ]
       },
       {
-        "tag": "div",
-        "class": "headline",
-        "inner": "%headline%"
+        "tag":"div",
+        "class":"srow",
+        "inner":[
+          {
+            "tag":"span",
+            "class":"keydis",
+            "inner":"Headline:"
+          },
+          {
+            "tag": "span",
+            "class": "headline",
+            "inner": "%headline%"
+          }
+        ]
       },
       {
-        "tag": "div",
-        "class": "name",
-        "inner": "%name%"
+        "tag":"div",
+        "class":"srow",
+        "inner":[
+          {
+            "tag":"span",
+            "class":"keydis",
+            "inner":"Created by:"
+          },
+          {
+            "tag": "span",
+            "class": "name",
+            "inner": "%name%"
+          }
+        ]
       },
       {
-        "tag": "div",
-        "class": "description",
-        "inner": "%description%"
+        "tag":"div",
+        "class":"row",
+        "inner":[
+          {
+            "tag":"span",
+            "class":"descriptionhead",
+            "inner":"Description:"
+          },
+          {
+            "tag": "div",
+            "class": "description",
+            "inner": "%description%"
+          }
+        ]
       },
       {
-        "tag": "div",
-        "class": "effort",
-        "inner": "%effort%"
-      },
-      {
-        "tag": "div",
-        "class": "wert",
-        "inner": "%wert%"
-      },
-      {
-        "tag": "div",
-        "class": "priority",
-        "inner": "%priority%"
+        "tag":"div",
+        "class":"brow",
+        "inner":[
+          {
+            "tag":"div",
+            "class":"keydis",
+            "inner":"Effort:"
+          },
+          {
+            "tag": "div",
+            "class": "effort",
+            "inner": "%effort%"
+          },
+          {
+            "tag":"div",
+            "class":"keydis",
+            "inner":"Value:"
+          },
+          {
+            "tag": "div",
+            "class": "wert",
+            "inner": "%wert%"
+          },
+          {
+            "tag":"div",
+            "class":"keydis",
+            "inner":"Priority:"
+          },
+          {
+            "tag": "div",
+            "class": "priority",
+            "inner": "%priority%"
+          }
+        ]
       }
     ]
   },

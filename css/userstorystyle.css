@@ -81,3 +81,33 @@ form, .zusatzfunktion {
     padding: 5px;
     width: 290px;
 }
+
+.srow{
+    text-align: right;
+    width:255px;
+    margin-bottom: 5px;
+    border-bottom: solid lightgray;
+}
+
+.keydis{
+    float: left;
+    margin-left: 20px;
+}
+.effort, .priority, .wert {
+    float: left;
+    margin-left: 5px;
+}
+
+.descriptionhead{
+    margin-left: 20px;
+}
+.description {
+    margin-left: 10px;
+    font-weight: lighter;
+}
+
+.brow {
+    width:255px;
+    margin-bottom: 5px;
+    border-top: solid lightgray;
+}

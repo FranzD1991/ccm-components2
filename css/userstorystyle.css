@@ -112,3 +112,6 @@ form, .zusatzfunktion {
     margin-bottom: 5px;
     border-top: solid lightgray;
 }
+.manager {
+    overflow: scroll;
+}

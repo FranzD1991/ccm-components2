@@ -177,7 +177,7 @@
                   "max":"5"
                 },
                 {
-                  "tag":"span",
+                  "tag":"div",
                   "class":"counter",
                   "id":"count_effort",
                   "inner":"5"
@@ -202,7 +202,7 @@
                   "max":"5"
                 },
                 {
-                  "tag":"span",
+                  "tag":"div",
                   "class":"counter",
                   "id":"count_wert",
                   "inner":"5"
@@ -227,7 +227,7 @@
                   "max":"5"
                 },
                 {
-                  "tag":"span",
+                  "tag":"div",
                   "class":"counter",
                   "id":"count_priority",
                   "inner":"5"

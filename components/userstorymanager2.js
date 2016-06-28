@@ -46,7 +46,7 @@ ccm.component( {
                     // Input Bereich laden
                     userstories_div.append( ccm.helper.html( self.html.get( 'input' ), {
                         // Laden der aktuellen zwischenwerte der Slider{
-                        onchange: function () 
+                        onchange: function () {
                             var effort = ccm.helper.val( ccm.helper.find( self, '#effort' ).val().trim() );
                             var wert = ccm.helper.val( ccm.helper.find( self, '#wert' ).val().trim() );
                             var priority = ccm.helper.val( ccm.helper.find( self, '#priority' ).val().trim() );

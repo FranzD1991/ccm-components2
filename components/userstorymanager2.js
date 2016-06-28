@@ -67,18 +67,19 @@ ccm.component( {
                             var priority = ccm.helper.val( ccm.helper.find( self, '#priority' ).val().trim() );
                             var timestamp = Math.floor(((Math.random() + new Date().getUTCMilliseconds()) * new Date().getUTCMilliseconds()));
 
-                            saveus(timestamp, headline, description, effort, wert, priority);
+                            saveus(timestamp, headline, description, effort, wert, priority, null);
                             return false;
                         }
                     } ) );
 
                     // Speicherfunktion der Daten
-                    function saveus(timestamp, headline, description, effort, wert, priority){
+                    function saveus(timestamp, headline, description, effort, wert, priority, nutzer){
                         if ( headline === '' || description === '') return;
                         self.user.login( function () {
+                            if(nutzer===null)nutzer = self.user.data().key;
                             self.store.set( {
                                     key: timestamp,
-                                    user: self.user.data().key,
+                                    user: nutzer,
                                     headline: headline,
                                     description: description,
                                     effort: effort,
@@ -174,7 +175,8 @@ ccm.component( {
                                     wconverter[i].description,
                                     wconverter[i].effort,
                                     wconverter[i].wert,
-                                    wconverter[i].priority);
+                                    wconverter[i].priority,
+                                    wconverter[i].user);
                             }
                         }
                     }));
@@ -206,7 +208,8 @@ ccm.component( {
                                     wconverter[i].description,
                                     wconverter[i].effort,
                                     wconverter[i].wert,
-                                    wconverter[i].priority);
+                                    wconverter[i].priority,
+                                    wconverter[i].user);
                             }
                         }
                     }));
@@ -239,7 +242,8 @@ ccm.component( {
                                     wconverter[i].description,
                                     wconverter[i].effort,
                                     wconverter[i].wert,
-                                    wconverter[i].priority);
+                                    wconverter[i].priority,
+                                    wconverter[i].user);
                             }
                         }
                     }));

@@ -45,8 +45,8 @@ ccm.component( {
                     // Kernfunktion--------------------------------------------------------------
                     // Input Bereich laden
                     userstories_div.append( ccm.helper.html( self.html.get( 'input' ), {
-                        // Laden der aktuellen zwischenwerte der Slider
-                        onchange: function () {
+                        // Laden der aktuellen zwischenwerte der Slider{
+                        onchange: function () 
                             var effort = ccm.helper.val( ccm.helper.find( self, '#effort' ).val().trim() );
                             var wert = ccm.helper.val( ccm.helper.find( self, '#wert' ).val().trim() );
                             var priority = ccm.helper.val( ccm.helper.find( self, '#priority' ).val().trim() );
@@ -144,6 +144,21 @@ ccm.component( {
                     }
 
                     // Laden der Sortierfunktionen.........................................
+                    function newUSOrder(wconverter) {
+                        dataset.manager=[];
+                        deleteallus();
+                        console.log("New Order:");
+                        for (var i=0;i<wconverter.length;i++){
+                            console.log(wconverter[i].key);
+                            saveus(wconverter[i].key,
+                                wconverter[i].headline,
+                                wconverter[i].description,
+                                wconverter[i].effort,
+                                wconverter[i].wert,
+                                wconverter[i].priority,
+                                wconverter[i].user);
+                        }
+                    }
                     // Sort by Value
                     userstories_div.append(ccm.helper.html(self.html.get('sortini')));
 
@@ -157,7 +172,7 @@ ccm.component( {
                                 wconverter[i] = self.store.get(dataset.manager[i]);
                             }
                             for(var iw=0;iw<wconverter.length;iw++){
-                                for(var j=0;j<wconverter.length;j++){
+                                for(var j=1;j<wconverter.length;j++){
                                     if(parseInt(wconverter[j].effort) > parseInt(wconverter[iw].effort)){
                                         xw = wconverter[iw];
                                         wconverter[iw]=wconverter[j];
@@ -165,19 +180,7 @@ ccm.component( {
                                     }
                                 }
                             }
-                            dataset.manager=[];
-                            deleteallus();
-                            console.log("New Order:");
-                            for (var i=0;i<wconverter.length;i++){
-                                console.log(wconverter[i].key);
-                                saveus(wconverter[i].key,
-                                    wconverter[i].headline,
-                                    wconverter[i].description,
-                                    wconverter[i].effort,
-                                    wconverter[i].wert,
-                                    wconverter[i].priority,
-                                    wconverter[i].user);
-                            }
+                            newUSOrder(wconverter);
                         }
                     }));
 
@@ -190,7 +193,7 @@ ccm.component( {
                                 wconverter[i] = self.store.get(dataset.manager[i]);
                             }
                             for(var iw=0;iw<wconverter.length;iw++){
-                                for(var j=0;j<wconverter.length;j++){
+                                for(var j=1;j<wconverter.length;j++){
                                     if(parseInt(wconverter[j].wert) > parseInt(wconverter[iw].wert)){
                                         xw = wconverter[iw];
                                         wconverter[iw]=wconverter[j];
@@ -198,19 +201,7 @@ ccm.component( {
                                     }
                                 }
                             }
-                            dataset.manager=[];
-                            deleteallus();
-                            console.log("New Order:");
-                            for (var i=0;i<wconverter.length;i++){
-                                console.log(wconverter[i].key);
-                                saveus(wconverter[i].key,
-                                    wconverter[i].headline,
-                                    wconverter[i].description,
-                                    wconverter[i].effort,
-                                    wconverter[i].wert,
-                                    wconverter[i].priority,
-                                    wconverter[i].user);
-                            }
+                            newUSOrder(wconverter);
                         }
                     }));
 
@@ -224,7 +215,7 @@ ccm.component( {
                                 wconverter[i] = self.store.get(dataset.manager[i]);
                             }
                             for(var iw=0;iw<wconverter.length;iw++){
-                                for(var j=0;j<wconverter.length;j++){
+                                for(var j=1;j<wconverter.length;j++){
                                     if(parseInt(wconverter[j].priority) > parseInt(wconverter[iw].priority)){
                                         xw = wconverter[iw];
                                         wconverter[iw]=wconverter[j];
@@ -232,19 +223,7 @@ ccm.component( {
                                     }
                                 }
                             }
-                            dataset.manager=[];
-                            deleteallus();
-                            console.log("New Order:");
-                            for (var i=0;i<wconverter.length;i++){
-                                console.log(wconverter[i].key);
-                                saveus(wconverter[i].key,
-                                    wconverter[i].headline,
-                                    wconverter[i].description,
-                                    wconverter[i].effort,
-                                    wconverter[i].wert,
-                                    wconverter[i].priority,
-                                    wconverter[i].user);
-                            }
+                            newUSOrder(wconverter);
                         }
                     }));
                     //.........................................
@@ -272,7 +251,7 @@ ccm.component( {
                         }
                     }
                     //--------------------------------------------------------------
-                    
+
                     if ( callback ) callback();
                 }
             } );
